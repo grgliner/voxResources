@@ -1,20 +1,21 @@
 # voxResources
 
 
-This folder contains the data and some initial tools to get you started.
+We have provided you with the data and some initial tools to get you started.
 
 # Data folder 
 The data folder consists of 10 folders corresponding to each of the 10 genres in the dataset:
-	1. Blues
-	2. Classical
-	3. Country
-	4. Disco
-	5. Hiphop
-	6. Jazz
-	7. Metal
-	8. Pop
-	9. Reggae
-	10. Rock
+
+1. Blues
+2. Classical
+3. Country
+4. Disco
+5. Hiphop
+6. Jazz
+7. Metal
+8. Pop
+9. Reggae
+10. Rock
 
 Each folder contains the data for 100 songs from the genre in .mat (Matlab) format.  We have 
 provided scipts to load the data into Matlab.  
