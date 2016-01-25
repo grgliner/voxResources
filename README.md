@@ -27,21 +27,23 @@ folder is organized exactly the same as the data folder.
 
 # Tools folder 
 We have included some matlab tools to help get started with the data.
-collectfeature.m
+
+* collectfeature.m
 	Extract a feature for all the songs
-demo_fv.m
+* demo_fv.m
 	Example use of the Fisher Vector function
-inferqgram.m
+* inferqgram.m
 	Not quite sure what this does
-loadAll.m
+* loadAll.m
 	Loads files in the data folder into a single structure in Matlab. 
 
 # Other Resources
 To get teh functionality to perform the Exemplar and Fisher Vector feature extraction you will need to:
-	1. Download vlfeat package for MATLAB from http://www.vlfeat.org/download.html and 
-	2. Install it in MATLAB using the following instructions: http://www.vlfeat.org/install-matlab.html
-	3. Refer to demo_fv.m as an example on how to compute Fisher vectors with exemplarshttps://www.dropbox.com/s/c2bl8psmr0jpy6c/demo_fv.zip?dl=0
-	4. To compute FV on an exemplar of size 5+ you will probably need 16GB+ memory  
+
+1. Download vlfeat package for MATLAB from http://www.vlfeat.org/download.html and 
+2. Install it in MATLAB using the following instructions: http://www.vlfeat.org/install-matlab.html
+3. Refer to demo_fv.m as an example on how to compute Fisher vectors with exemplarshttps://www.dropbox.com/s/c2bl8psmr0jpy6c/demo_fv.zip?dl=0
+4. To compute FV on an exemplar of size 5+ you will probably need 16GB+ memory  
 
 
 
