@@ -33,7 +33,7 @@ We have included some matlab tools to help get started with the data.
 * demo_fv.m
 	- Example use of the Fisher Vector function
 * inferqgram.m
-	- Not quite sure what this does
+	- needed for the exemplar
 * loadAll.m
 	- Loads files in the data folder into a single structure in Matlab. 
 
@@ -45,6 +45,25 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 3. Refer to demo_fv.m as an example on how to compute Fisher vectors with exemplars
 4. To compute FV on an exemplar of size 5+ you will probably need 16GB+ memory  
 
+# Sample workflow
 
+%Change this to the directory containing your data folder
+dirn = '/Users/Gazelle/Documents/voxResources';
 
+%import the data
+[DAT, LB, FNS] = loadAll(dirn);
+
+%extract the MFCC
+mfcc = cell(1,1000);
+for i =1:length(DAT)
+	mfcc{i} = DAT{i}.mfc; 
+end
+
+GENDATA.mfcc = mfcc;
+GENDATA.class = LB;
+GENDATA.classnames = {'Blues', 'Classical', 'Country', 'Disco', 'Hiphop',...
+	'Jazz', 'Metal', 'Pop', 'Reggae', 'Rock'}
+
+#run fisher vector
+demo_fv
 
