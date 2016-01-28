@@ -36,6 +36,8 @@ We have included some matlab tools to help get started with the data.
 	- needed for the exemplar
 * loadAll.m
 	- Loads files in the data folder into a single structure in Matlab. 
+* MAT2CSV.py
+	- Writes arrarys stored within a .mat file to .csv files
 
 # Other Resources
 To perform the Exemplar and Fisher Vector feature extraction you will need to:
@@ -64,6 +66,7 @@ GENDATA.class = LB;
 GENDATA.classnames = {'Blues', 'Classical', 'Country', 'Disco', 'Hiphop',...
 	'Jazz', 'Metal', 'Pop', 'Reggae', 'Rock'}
 
-#run fisher vector
+
+%run fisher vector
 demo_fv
 
