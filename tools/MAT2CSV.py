@@ -7,10 +7,11 @@
 ####
 ####  Code: MAT2CSV.py
 ####
-####  Last updated: 1/27/16
+####  Last updated: 1/29/16
 ####
 ####  Notes and disclaimers:
 ####    Writes arrays stored within .mat structs as individual .csv files 
+####    Names of .mat files should be given as command line arguments. 
 ####
 #########################################################################
 
@@ -29,12 +30,19 @@ def _todict(matobj):
     return dict
 
 def recSave(fn, d):
+    DONOTSAVE = ['class_name','filename']
     for key, val in d.iteritems():
-        if isinstance(val, dict):
-            recSave('%s_%s' % (fn, key), val)
-        else:
-            if len(val) != 0:
-                np.savetxt('%s_%s.csv' %(fn,key),val,delimiter=',')
+        if key not in DONOTSAVE:
+            if isinstance(val, dict):
+                recSave('%s_%s' % (fn, key), val)
+            else:
+                print type(val)
+                if isinstance(val, int): 
+                    np.savetxt('%s_%s.csv' %(fn,key),[val],delimiter=',')
+                elif isinstance(val,np.ndarray):
+                    np.savetxt('%s_%s.csv' %(fn,key),val,delimiter=',')
+                else:
+                    print 'Value not of recognized type'
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -47,3 +55,5 @@ if __name__ == '__main__':
                 if name not in DONOTSAVE:
                     d = _todict(vals)
                     recSave('%s_%s' % (fn[:-4], name), d)
+
+
