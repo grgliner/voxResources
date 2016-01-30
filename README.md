@@ -25,6 +25,32 @@ The audio files for each song be downloaded from http://opihi.cs.uvic.ca/sound/g
 This file is quite large and may take about 10 minutes to fully download.  Once unpacked, this 
 folder is organized exactly the same as the data folder.  
 
+# Data
+The data associated with each song is represented as a struct.  Each struct contains the following features:
+	* stat: [1x1 struct] 
+	* env: [1198x1 double]
+	* eng: [1x1198 double]
+	* mfc: [24x1198 double]
+	* chroma: [12x1198 double]
+	* centers: [1x1198 double]
+	* other: [1x1 struct]
+	* class: 1
+
+The stat struct contains:
+	* flux: [1x1198 double]
+
+The other struct contains:
+	* onsets: [155x1 double]
+	* keystrength: [12x1198 double]
+	* brightness: [1x1198 double]
+	* zerocross: [1x1198 double]
+	* roughness: [1x1198 double]
+	* pitches: [5x1198 double]
+	* inharmonic: [1x1198 double]
+	* tempo: 124.8970
+	* key: 8
+	* hcdf: [1x1198 double]
+
 # Tools folder 
 We have included some matlab tools to help get started with the data.
 
@@ -37,7 +63,10 @@ We have included some matlab tools to help get started with the data.
 * loadAll.m
 	- Loads files in the data folder into a single structure in Matlab. 
 * MAT2CSV.py
-	- Writes arrarys stored within a .mat file to .csv files
+	- Writes arrays stored within a .mat file to .csv files
+
+### Note: 
+Matlab is avaliable free to all students through OIT.  Go here: http://www.princeton.edu/software/licenses/software/matlab/ for installation instructions.  For any problems with installation, please contact the OIT helpdesk.
 
 # Other Resources
 To perform the Exemplar and Fisher Vector feature extraction you will need to:
