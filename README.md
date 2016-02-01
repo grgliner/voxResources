@@ -79,6 +79,8 @@ We have included some matlab tools to help get started with the data.
 ### Note: 
 Matlab is avaliable free to all students through OIT.  Go here: http://www.princeton.edu/software/licenses/software/matlab/ for installation instructions.  For any problems with installation, please contact the OIT helpdesk.
 
+### Note: mfcc and mfc are used interchangeably 
+
 # Other Resources
 To perform the Exemplar and Fisher Vector feature extraction you will need to:
 
