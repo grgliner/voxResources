@@ -27,29 +27,40 @@ folder is organized exactly the same as the data folder.
 
 # Data
 The data associated with each song is represented as a struct.  Each struct contains the following features:
-	* stat: [1x1 struct] 
-	* env: [1198x1 double]
-	* eng: [1x1198 double]
-	* mfc: [24x1198 double]
-	* chroma: [12x1198 double]
-	* centers: [1x1198 double]
-	* other: [1x1 struct]
-	* class: 1
+* stat: [1x1 struct] 
+* env: [1198x1 double]
+* eng: [1x1198 double]
+* mfc: [24x1198 double]
+* chroma: [12x1198 double]
+* centers: [1x1198 double]
+* other: [1x1 struct]
+* class: 1
 
 The stat struct contains:
-	* flux: [1x1198 double]
+* flux: [1x1198 double]
 
 The other struct contains:
-	* onsets: [155x1 double]
-	* keystrength: [12x1198 double]
-	* brightness: [1x1198 double]
-	* zerocross: [1x1198 double]
-	* roughness: [1x1198 double]
-	* pitches: [5x1198 double]
-	* inharmonic: [1x1198 double]
-	* tempo: 124.8970
-	* key: 8
-	* hcdf: [1x1198 double]
+* onsets: [155x1 double]
+* keystrength: [12x1198 double]
+* brightness: [1x1198 double]
+* zerocross: [1x1198 double]
+* roughness: [1x1198 double]
+* pitches: [5x1198 double]
+* inharmonic: [1x1198 double]
+* tempo: 124.8970	
+* key: 8
+* hcdf: [1x1198 double]
+
+GENDATA.mat can be downloaded from https://www.dropbox.com/s/emitp9kxbj7v9hw/GenreData1024n32wlb.mat?dl=0, which is a struct that looks like:
+
+GENDATA = 
+- classnames: {1x10 cell}
+- class: [1x1000 double]
+- mfcc: {1x1000 cell}
+
+and contains the MFCC feature in a form that can be submitted directly to the FV/Exemplar transformation function.
+
+
 
 # Tools folder 
 We have included some matlab tools to help get started with the data.
