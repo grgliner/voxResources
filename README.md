@@ -90,23 +90,33 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 # Sample workflow
 
 %Change this to the directory containing your data folder
+
 dirn = '/Users/Gazelle/Documents/voxResources';
 
 %import the data
+
 [DAT, LB, FNS] = loadAll(dirn);
 
 %extract the MFCC
+
 mfcc = cell(1,1000);
+
 for i =1:length(DAT)
+
 	mfcc{i} = DAT{i}.mfc; 
+
 end
 
 GENDATA.mfcc = mfcc;
+
 GENDATA.class = LB;
+
 GENDATA.classnames = {'Blues', 'Classical', 'Country', 'Disco', 'Hiphop',...
+
 	'Jazz', 'Metal', 'Pop', 'Reggae', 'Rock'}
 
 
 %run fisher vector
+
 demo_fv
 
