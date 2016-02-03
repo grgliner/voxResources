@@ -77,43 +77,43 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 
 # Sample workflow for loading the data into Matlab and using the Fisher Vector/Exemplar feature extraction script
 
-%Change this to the directory containing your data folder
+	%Change this to the directory containing your data folder
 
-dirn = '/Users/Gazelle/Documents/voxResources';
+	dirn = '/Users/Gazelle/Documents/voxResources';
 
-%intitialize the FV toolbox - you will need to change the filepath appropriately
+	%intitialize the FV toolbox - you will need to change the filepath appropriately
 
-run('/Users/Gazelle/Documents/MATLAB/vlfeat-0.9.20/toolbox/vl_setup')
+	run('/Users/Gazelle/Documents/MATLAB/vlfeat-0.9.20/toolbox/vl_setup')
 
-%add tools path - you will need to change the filepath appropriately
+	%add tools path - you will need to change the filepath appropriately
 
-addpath(genpath('/Users/Gazelle/Documents/voxResources/tools'))
+	addpath(genpath('/Users/Gazelle/Documents/voxResources/tools'))
 
-%load the all songs into a single struct
+	%load the all songs into a single struct
 
-[DAT, LB, FNS] = loadAll(dirn);
+	[DAT, LB, FNS] = loadAll(dirn);
 
-%extract the MFCC feature
+	%extract the MFCC feature
 
-mfcc = cell(1,1000);
+	mfcc = cell(1,1000);
 
-for i = 1:length(DAT)
+	for i = 1:length(DAT)
     
-    mfcc{i} = DAT{i}.mfc;
+    	mfcc{i} = DAT{i}.mfc;
 
-end
+	end
 
-%create the structure used as input into the demo_fv
+	%create the structure used as input into the demo_fv
 
-GENDATA.data = mfcc;
+	GENDATA.data = mfcc;
 
-GENDATA.class = LB;
+	GENDATA.class = LB;
 
-GENDATA.classnames = {'Blues', 'Classical', 'Country', 'Disco', 'Hiphop',...
+	GENDATA.classnames = {'Blues', 'Classical', 'Country', 'Disco', 'Hiphop',...
 
-	'Jazz', 'Metal', 'Pop', 'Reggae', 'Rock'};
+		'Jazz', 'Metal', 'Pop', 'Reggae', 'Rock'};
 
 
-%run fisher vector
+	%run fisher vector
 
-FV = demo_fv(GENDATA, 3, 3)
+	FV = demo_fv(GENDATA, 3, 3)
