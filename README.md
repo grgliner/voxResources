@@ -108,13 +108,7 @@ mfcc = cell(1,1000);
 
 for i = 1:length(DAT)
     
-    %I am truncating the matrices for run time purposes
-    
-    tmp = DAT{i}.mfc[:,1:500];
-    
-    tmp(isnan(tmp)) = 0;
-	
-	mfcc{i} = tmp; 
+    mfcc{i} = DAT{i}.mfc;
 
 end
 

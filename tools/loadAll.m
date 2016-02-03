@@ -1,4 +1,4 @@
-function [DAT, LB, FNS] = loadAll(dirn)
+function [D, LB, FNS] = loadAll(dirn)
 %%Load the raw data into a single matlab struct.  
 % usage: [dat, lb, fns] = loadAll(dirname)
 % dirname is your path to the processed directory.  The data is outputted
@@ -7,7 +7,7 @@ function [DAT, LB, FNS] = loadAll(dirn)
 dirn = [dirn '/data'];
 
 ctgdirns = dir(dirn);
-DAT = {};
+D = {};
 LB = [];
 FNS = {};
 
@@ -21,9 +21,9 @@ for j = 1 : length(ctgdirns)
         fn = fns(i).name;
         if (fn(1) == '.'), continue; end;
         load([dirn '/' ctg '/' fn]);
-        DAT{count} = OPUS;
+        D{count} = DAT;
         count = count + 1;
-        LB = [LB, OPUS.class];
+        LB = [LB, DAT.class];
         FNS{length(FNS) + 1} = fn;
     end
 end
