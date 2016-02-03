@@ -26,32 +26,23 @@ This file is quite large and may take about 10 minutes to fully download.  Once 
 folder is organized exactly the same as the data folder.  
 
 # Data
-The data associated with each song is represented as a struct.  We provide a script to load the data into matlab and compile all songs in a single struct and script to create CSV files for each song.  Mat files can also be loaded directly into Python.     
+The data associated with each song is represented as a struct.  We provide a script to load the data into matlab, a script to compile all the songs in a single struct, and a script to create CSV files for each song.  The .mat files can also be loaded directly into Python.     
 
 Each struct contains the following features:
-* stat: [1x1 struct] 
-* env: [1198x1 double]
-* eng: [1x1198 double]
-* mfc: [24x1198 double]
-* chroma: [12x1198 double]
-* centers: [1x1198 double]
-* other: [1x1 struct]
+* file_name: 'blues.00001.au'
+* class_name: 'blues'
 * class: 1
-
-The stat struct contains:
-* flux: [1x1198 double]
-
-The other struct contains:
-* onsets: [155x1 double]
+* eng: [1x1198 double]
+* mfc: [32x1198 double]
+* chroma: [12x1198 double]
+* t: [1x1198 double]
 * keystrength: [12x1198 double]
 * brightness: [1x1198 double]
 * zerocross: [1x1198 double]
 * roughness: [1x1198 double]
-* pitches: [5x1198 double]
 * inharmonic: [1x1198 double]
-* tempo: 124.8970	
 * key: 8
-* hcdf: [1x1198 double]
+* tempo: 69.1125
 
 ### Note: 
 See usicGenreClassificationInformation.pdf in this folder for a description of the features.
@@ -84,17 +75,17 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 3. Refer to demo_fv.m as an example on how to compute Fisher vectors with exemplars
 4. To compute FV on an exemplar of size 5+ you will probably need 16GB+ memory  
 
-# Sample workflow for using the Fisher Vector/Exemplar feature extraction script
+# Sample workflow for loading the data into Matlab and using the Fisher Vector/Exemplar feature extraction script
 
 %Change this to the directory containing your data folder
 
 dirn = '/Users/Gazelle/Documents/voxResources';
 
-%intitialize the FV toolbox - you will need to change the filepath
+%intitialize the FV toolbox - you will need to change the filepath appropriately
 
 run('/Users/Gazelle/Documents/MATLAB/vlfeat-0.9.20/toolbox/vl_setup')
 
-%add tools path
+%add tools path - you will need to change the filepath appropriately
 
 addpath(genpath('/Users/Gazelle/Documents/voxResources/tools'))
 
