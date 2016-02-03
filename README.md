@@ -26,7 +26,9 @@ This file is quite large and may take about 10 minutes to fully download.  Once 
 folder is organized exactly the same as the data folder.  
 
 # Data
-The data associated with each song is represented as a struct.  Each struct contains the following features:
+The data associated with each song is represented as a struct.  We provide a script to load the data into matlab and compile all songs in a single struct and script to create CSV files for each song.  Mat files can also be loaded directly into Python.     
+
+Each struct contains the following features:
 * stat: [1x1 struct] 
 * env: [1198x1 double]
 * eng: [1x1198 double]
@@ -69,7 +71,7 @@ We have included some matlab tools to help get started with the data.
 	- Writes arrays stored within a .mat file to .csv files
 
 ### Note: 
-Matlab is avaliable free to all students through OIT.  Go here: http://www.princeton.edu/software/licenses/software/matlab/ for installation instructions.  For any problems with installation, please contact the OIT helpdesk.
+Matlab is avaliable free to all students through OIT.  Go here: http://www.princeton.edu/software/licenses/software/matlab/ for installation instructions.  For any problems with installation, please contact the OIT helpdesk.  Matlab is also installed on all machines in campus computer labs.  
 
 ### Note: 
 mfcc and mfc are used interchangeably 
@@ -86,24 +88,32 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 
 %Change this to the directory containing your data folder
 
-%Change this to the directory containing your data folder
 dirn = '/Users/Gazelle/Documents/voxResources';
 
-%add tools path
+%intitialize the FV toolbox - you will need to change the filepath
+
 run('/Users/Gazelle/Documents/MATLAB/vlfeat-0.9.20/toolbox/vl_setup')
+
+%add tools path
+
 addpath(genpath('/Users/Gazelle/Documents/voxResources/tools'))
 
+%load the all songs into a single struct
 
 [DAT, LB, FNS] = loadAll(dirn);
 
-%extract the MFCC
+%extract the MFCC feature
 
 mfcc = cell(1,1000);
 
 for i = 1:length(DAT)
-    %I am truncated the matrices for run time purposes
+    
+    %I am truncating the matrices for run time purposes
+    
     tmp = DAT{i}.mfc[:,1:500];
+    
     tmp(isnan(tmp)) = 0;
+	
 	mfcc{i} = tmp; 
 
 end
