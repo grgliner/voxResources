@@ -89,7 +89,7 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 
 	addpath(genpath('/Users/Gazelle/Documents/voxResources/tools'))
 
-	%load the all songs into a single struct
+	%load all songs into a single struct
 
 	[DAT, LB, FNS] = loadAll(dirn);
 
