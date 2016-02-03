@@ -82,7 +82,7 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 3. Refer to demo_fv.m as an example on how to compute Fisher vectors with exemplars
 4. To compute FV on an exemplar of size 5+ you will probably need 16GB+ memory  
 
-# Sample workflow
+# Sample workflow for using the Fisher Vector/Exemplar feature extraction script
 
 %Change this to the directory containing your data folder
 
