@@ -51,16 +51,6 @@ The other struct contains:
 * key: 8
 * hcdf: [1x1198 double]
 
-GENDATA.mat can be downloaded from https://www.dropbox.com/s/emitp9kxbj7v9hw/GenreData1024n32wlb.mat?dl=0, which is a struct that looks like:
-
-GENDATA = 
-- classnames: {1x10 cell}
-- class: [1x1000 double]
-- mfcc: {1x1000 cell}
-
-and contains the MFCC feature in a form that can be submitted directly to the FV/Exemplar transformation function.
-
-
 
 # Tools folder 
 We have included some matlab tools to help get started with the data.
@@ -94,9 +84,13 @@ To perform the Exemplar and Fisher Vector feature extraction you will need to:
 
 %Change this to the directory containing your data folder
 
+%Change this to the directory containing your data folder
 dirn = '/Users/Gazelle/Documents/voxResources';
 
-%import the data
+%add tools path
+run('/Users/Gazelle/Documents/MATLAB/vlfeat-0.9.20/toolbox/vl_setup')
+addpath(genpath('/Users/Gazelle/Documents/voxResources/tools'))
+
 
 [DAT, LB, FNS] = loadAll(dirn);
 
@@ -104,22 +98,25 @@ dirn = '/Users/Gazelle/Documents/voxResources';
 
 mfcc = cell(1,1000);
 
-for i =1:length(DAT)
-
-	mfcc{i} = DAT{i}.mfc; 
+for i = 1:length(DAT)
+    %I am truncated the matrices for run time purposes
+    tmp = DAT{i}.mfc[:,1:500];
+    tmp(isnan(tmp)) = 0;
+	mfcc{i} = tmp; 
 
 end
 
-GENDATA.mfcc = mfcc;
+%create the structure used as input into the demo_fv
+
+GENDATA.data = mfcc;
 
 GENDATA.class = LB;
 
 GENDATA.classnames = {'Blues', 'Classical', 'Country', 'Disco', 'Hiphop',...
 
-	'Jazz', 'Metal', 'Pop', 'Reggae', 'Rock'}
+	'Jazz', 'Metal', 'Pop', 'Reggae', 'Rock'};
 
 
 %run fisher vector
 
-demo_fv
-
+FV = demo_fv(GENDATA, 3, 3)
