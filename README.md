@@ -51,6 +51,7 @@ The other struct contains:
 * key: 8
 * hcdf: [1x1198 double]
 
+### Note: See usicGenreClassificationInformation.pdf in this folder for a description of the features.
 
 # Tools folder 
 We have included some matlab tools to help get started with the data.
