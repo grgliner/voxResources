@@ -20,14 +20,14 @@ import scipy.io as spio
 import numpy as np
 
 def _todict(matobj):
-    dict = {}
+    d = {}
     for strg in matobj._fieldnames:
         elem = matobj.__dict__[strg]
         if isinstance(elem, spio.matlab.mio5_params.mat_struct):
-            dict[strg] = _todict(elem)
+            d[strg] = _todict(elem)
         else:
-            dict[strg] = elem
-    return dict
+            d[strg] = elem
+    return d
 
 def recSave(fn, d):
     DONOTSAVE = ['class_name','filename']
